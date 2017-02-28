@@ -1,3 +1,6 @@
+import {Paciente} from "../models/Paciente";
+import {ListaPacientes} from "../models/ListaPacientes";
+import {ListaPacientesView} from "../views/ListaPacientesView";
 
 class ImcController {
     
@@ -17,13 +20,7 @@ class ImcController {
 
         event.preventDefault();
 
-        /*let paciente = this._criaPaciente();
-
-        console.log('paciente');
-        console.log(paciente.nome);*/
-
         this._listaPacientes.adiciona(this._criaPaciente());
-        console.log(this._listaPacientes.pacientes);
         this._listaPacientesView.update(this._listaPacientes);
         this._limpaFormulario();
 
@@ -43,4 +40,11 @@ class ImcController {
     }
 
     
+}
+let imcController = new ImcController();
+
+export function currentInstance() {
+
+    return imcController;
+
 }

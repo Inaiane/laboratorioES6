@@ -1,4 +1,4 @@
-class ListaPacientesView{
+export class ListaPacientesView{
 
 
     constructor(elemento){

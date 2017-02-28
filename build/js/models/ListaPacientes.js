@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8,42 +8,41 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Paciente = exports.Paciente = function () {
-    function Paciente(nome, altura, peso) {
-        _classCallCheck(this, Paciente);
+var ListaPacientes = exports.ListaPacientes = function () {
+    function ListaPacientes() {
+        _classCallCheck(this, ListaPacientes);
 
-        this._nome = nome;
-        this._altura = altura;
-        this._peso = peso;
-        Object.freeze(this);
+        this._pacientes = [];
+        this._initPacientes();
+
+        console.log('this._pacientes');
+        console.log(this._pacientes);
     }
 
-    _createClass(Paciente, [{
-        key: "nome",
-        get: function get() {
+    _createClass(ListaPacientes, [{
+        key: '_initPacientes',
+        value: function _initPacientes() {
 
-            return this._nome;
+            if (!localStorage.pacientes) {
+                localStorage.pacientes = JSON.stringify([]);
+            }
+
+            this._pacientes = JSON.parse(localStorage.pacientes);
         }
     }, {
-        key: "altura",
-        get: function get() {
+        key: 'adiciona',
+        value: function adiciona(paciente) {
 
-            return this._altura;
+            this._pacientes.push(paciente);
+            localStorage.pacientes = JSON.stringify(this._pacientes);
         }
     }, {
-        key: "peso",
+        key: 'pacientes',
         get: function get() {
 
-            return this._peso;
-        }
-    }, {
-        key: "imc",
-        get: function get() {
-
-            var imc = Math.floor(this._peso / (this._altura * this._altura));
-            return imc;
+            return [].concat(this._pacientes);
         }
     }]);
 
-    return Paciente;
+    return ListaPacientes;
 }();

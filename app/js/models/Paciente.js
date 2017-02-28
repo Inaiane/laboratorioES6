@@ -1,4 +1,4 @@
-class Paciente {
+export class Paciente {
 
     constructor(nome, altura, peso){
 

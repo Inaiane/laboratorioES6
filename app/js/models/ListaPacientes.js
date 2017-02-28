@@ -1,4 +1,4 @@
-class ListaPacientes {
+export class ListaPacientes {
 
     constructor() {
 
@@ -7,7 +7,6 @@ class ListaPacientes {
         
         console.log('this._pacientes');
         console.log(this._pacientes);
-        // console.log(this._pacientes[0]._altura);
     }
 
     _initPacientes() {

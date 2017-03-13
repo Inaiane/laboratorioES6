@@ -1,0 +1,1 @@
+Projeto Cadastro de Pacientes desenvolvido em javascript 6, utilizando o transpiler Babel e automatizador de tarefas Gulp.
